@@ -110,3 +110,6 @@ class Stretch:
         d[above] = self._mtf(m, (d[above] - c0)/(1 - c0))
         return d
 
+# Wrapper function for simpler interface
+def apply_stretch(data, target_bkg=0.25, shadows_clip=-1.25):
+    return Stretch(target_bkg, shadows_clip).stretch(data)

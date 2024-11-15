@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="auto-stretch", 
-    version="0.0.1",
+    version="0.0.3",
     author="Tim Beccue",
     author_email="timothybeccue@gmail.com",
     description="Stretch linear astro data for easier visualization.",
