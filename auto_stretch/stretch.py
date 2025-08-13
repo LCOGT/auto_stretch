@@ -1,4 +1,3 @@
-from astropy.io import fits
 import numpy as np
 
 """
@@ -8,11 +7,11 @@ Pleiades Astrophoto and its contributors (http://pixinsight.com/).
 
 class Stretch:
 
-    def __init__(self, target_bkg=0.25, shadows_clip=-1.25):
+    def __init__(self, target_bkg:float=0.25, shadows_clip:float=-1.25) -> None:
         self.shadows_clip = shadows_clip
         self.target_bkg = target_bkg
 
-    def _get_avg_dev(self, data):
+    def _get_avg_dev(self, data: np.ndarray) -> float:
         """Return the average deviation from the median.
 
         Args:
@@ -25,7 +24,7 @@ class Stretch:
         return avg_dev
 
 
-    def _mtf(self, m, x):
+    def _mtf(self, m: float, x: np.ndarray) -> np.ndarray:
         """Midtones Transfer Function
 
         MTF(m, x) = {
@@ -61,7 +60,7 @@ class Stretch:
         return x.reshape(shape)
 
 
-    def _get_stretch_parameters(self, data):
+    def _get_stretch_parameters(self, data: np.ndarray) -> dict[str, float]:
         """ Get the stretch parameters automatically.
         m (float) is the midtones balance
         c0 (float) is the shadows clipping point
@@ -80,7 +79,7 @@ class Stretch:
         }
 
 
-    def stretch(self, data):
+    def stretch(self, data: np.ndarray) -> np.ndarray:
         """ Stretch the image.
 
         Args:
@@ -111,5 +110,5 @@ class Stretch:
         return d
 
 # Wrapper function for simpler interface
-def apply_stretch(data, target_bkg=0.25, shadows_clip=-1.25):
+def apply_stretch(data: np.ndarray, target_bkg: float=0.25, shadows_clip: float=-1.25) -> np.ndarray:
     return Stretch(target_bkg, shadows_clip).stretch(data)
