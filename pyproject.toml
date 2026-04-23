@@ -31,10 +31,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/timbeccue/auto_stretch"
-Repository = "https://github.com/timbeccue/auto_stretch"
-Issues = "https://github.com/timbeccue/auto_stretch/issues"
-Changelog = "https://github.com/timbeccue/auto_stretch/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/LCOGT/auto_stretch"
+Repository = "https://github.com/LCOGT/auto_stretch"
+Issues = "https://github.com/LCOGT/auto_stretch/issues"
+Changelog = "https://github.com/LCOGT/auto_stretch/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = [

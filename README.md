@@ -4,7 +4,7 @@ Automatically stretch linear astronomical images for easy visualization.
 
 [![PyPI version](https://img.shields.io/pypi/v/auto-stretch.svg)](https://pypi.org/project/auto-stretch/)
 [![Python versions](https://img.shields.io/pypi/pyversions/auto-stretch.svg)](https://pypi.org/project/auto-stretch/)
-[![CI](https://github.com/timbeccue/auto_stretch/actions/workflows/ci.yml/badge.svg)](https://github.com/timbeccue/auto_stretch/actions/workflows/ci.yml)
+[![CI](https://github.com/LCOGT/auto_stretch/actions/workflows/ci.yml/badge.svg)](https://github.com/LCOGT/auto_stretch/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Auto Stretch applies a PixInsight-style Screen Transfer Function (STF) midtones transfer to linear astronomical images stored as numpy arrays. It automatically computes the optimal stretch parameters from the image data so that faint detail becomes visible without manual histogram adjustment.
