@@ -46,7 +46,7 @@ stretched = Stretch(target_bkg=0.25, shadows_clip=-1.25).stretch(image)
 | `target_bkg` | 0.25 | Target median brightness after stretch |
 | `shadows_clip` | -1.25 | Shadow clipping point in units of median absolute deviation below the median |
 
-The underlying algorithm follows the [PixInsight Histogram Transformation STF](https://pixinsight.com/doc/tools/HistogramTransformation/HistogramTransformation.html) method.
+The underlying algorithm follows the PixInsight Histogram Transformation STF method.
 
 ## Dependencies
 
@@ -55,7 +55,7 @@ The underlying algorithm follows the [PixInsight Histogram Transformation STF](h
 
 ## Credit
 
-Based on the [PixInsight Screen Transfer Function (STF)](https://pixinsight.com/doc/tools/HistogramTransformation/HistogramTransformation.html) algorithm developed by Pleiades Astrophoto.
+Based on the PixInsight Screen Transfer Function (STF) algorithm developed by Pleiades Astrophoto.
 
 ## License
 
