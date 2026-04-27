@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [0.1.0] — 2026-04-23
+## [1.0.0] — 2026-04-27
+
+First stable release. Contains the changes previously prepared under 0.1.0
+(which was never published to PyPI), promoted to 1.0 to signal API stability.
 
 ### Changed (breaking)
 
