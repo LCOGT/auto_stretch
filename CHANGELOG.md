@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org).
 
+## [1.1.0] — 2026-07-03
+
+### Added
+
+- Type hints throughout the public and internal API, plus a `py.typed` marker (PEP 561) so mypy/Pyright type-check against them in downstream projects. Thanks to @HarbingerOfFire (#1) for the idea.
+- Test covering big-endian (`>f4`) input, the byte order astropy returns when reading FITS files — distilled from the FITS round-trip test proposed in #1.
+
 ## [1.0.0] — 2026-04-27
 
 First stable release. Contains the changes previously prepared under 0.1.0
