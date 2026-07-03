@@ -98,6 +98,15 @@ def test_float32_input():
     assert result.shape == image.shape
 
 
+def test_big_endian_input():
+    # FITS files store data big-endian, so arrays from astropy arrive as >f4/>f8.
+    image = np.array([[1, 2], [3, 1]], dtype=">f4")
+    result = apply_stretch(image)
+    assert result.dtype == np.float64
+    assert result.shape == image.shape
+    assert np.allclose(result, apply_stretch(image.astype(np.float64)))
+
+
 def test_float64_input():
     image = np.array([[1, 2], [3, 1]], dtype=np.float64)
     s = stretch.Stretch()

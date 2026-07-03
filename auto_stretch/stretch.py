@@ -8,19 +8,19 @@ import numpy as np
 
 class Stretch:
 
-    def __init__(self, target_bkg=0.25, shadows_clip=-1.25):
+    def __init__(self, target_bkg: float = 0.25, shadows_clip: float = -1.25) -> None:
         self.shadows_clip = shadows_clip
         self.target_bkg = target_bkg
 
-    def _get_avg_dev(self, data):
+    def _get_avg_dev(self, data: np.ndarray) -> float:
         """Return the average deviation from the median.
 
         Args:
             data (np.array): array of floats, presumably the image data
         """
-        return np.mean(np.abs(data - np.median(data)))
+        return float(np.mean(np.abs(data - np.median(data))))
 
-    def _mtf(self, m, x):
+    def _mtf(self, m: float, x: float | np.ndarray) -> np.ndarray:
         """Midtones Transfer Function
 
         MTF(m, x) = {
@@ -56,7 +56,7 @@ class Stretch:
         # NaN values are left unchanged (propagate naturally)
         return x
 
-    def _get_stretch_parameters(self, data):
+    def _get_stretch_parameters(self, data: np.ndarray) -> dict[str, float]:
         """Get the stretch parameters automatically.
 
         m (float) is the midtones balance
@@ -65,20 +65,20 @@ class Stretch:
         median = np.median(data)
         avg_dev = self._get_avg_dev(data)
 
-        c0 = np.clip(median + (self.shadows_clip * avg_dev), 0, 1)
+        c0 = float(np.clip(median + (self.shadows_clip * avg_dev), 0, 1))
 
         # Guard against degenerate c0 == 1 (would cause division by zero)
         if c0 >= 1:
             return {"c0": c0, "m": 0.5}
 
-        m = self._mtf(self.target_bkg, (median - c0) / (1 - c0))
+        m = float(self._mtf(self.target_bkg, (median - c0) / (1 - c0)))
 
         return {
             "c0": c0,
             "m": m,
         }
 
-    def stretch(self, data):
+    def stretch(self, data: np.ndarray) -> np.ndarray:
         """Stretch the image.
 
         Args:
@@ -132,5 +132,7 @@ class Stretch:
 
 
 # Wrapper function for simpler interface
-def apply_stretch(data, target_bkg=0.25, shadows_clip=-1.25):
+def apply_stretch(
+    data: np.ndarray, target_bkg: float = 0.25, shadows_clip: float = -1.25
+) -> np.ndarray:
     return Stretch(target_bkg, shadows_clip).stretch(data)
